@@ -34,7 +34,11 @@ class Contacts(omnisendStream):
         th.Property("postalCode", th.StringType),
         th.Property("address", th.StringType),
         th.Property("gender", th.StringType),
-        th.Property("phone", th.StringType),
+        th.Property("phone", 
+            th.ArrayType(
+                th.Property("status", th.StringType)
+            )
+        ),
         th.Property("phoneNumber", th.StringType),
         th.Property("birthdate", th.DateTimeType),
         th.Property("sent", th.NumberType),
@@ -42,9 +46,28 @@ class Contacts(omnisendStream):
         th.Property("clicked", th.NumberType),
         th.Property("status", th.StringType),
         th.Property("lists", th.StringType),
-        th.Property("statuses", th.StringType),
-        th.Property("optIns", th.StringType),
-        th.Property("doubleOptIns", th.StringType),
+        th.Property("statuses", 
+            th.ArrayType(
+                th.ObjectType(
+                    th.Property("status", th.StringType),
+                    th.Property("date", th.DateTimeType),
+                )
+            )
+        ), 
+        th.Property("optIns", 
+            th.ArrayType(
+                th.ObjectType(
+                    th.Property("date", th.DateTimeType),
+                )
+            )
+        ), 
+        th.Property("doubleOptIns", 
+            th.ArrayType(
+                th.ObjectType(
+                    th.Property("date", th.DateTimeType),
+                )
+            )
+        ),
         th.Property("tags", th.ArrayType(th.StringType)),
         th.Property("customProperties", th.ObjectType(
             th.Property("externalCreated", th.DateTimeType),
