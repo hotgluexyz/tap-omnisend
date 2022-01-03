@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "tap-omnisend"
-version = "0.0.1"
+version = "0.0.2"
 description = "`tap-omnisend` is a Singer tap for omnisend, built with the Meltano SDK for Singer Taps."
 authors = ["hotglue"]
 keywords = [
